@@ -1,0 +1,3 @@
+I plan on mimicking the popular app ToDoist for this project. The reasons of this includes my familiary with the functionality, and I can see real usage with this app.  It is neat that I could recreate this app except I can also cater it to my needs and fix the issues I face with only having the free app.
+
+I am going to begin the project by creating the general DOM structure of a single webpage.  I will check to ensure that I can add items to this page.  These ToDoList items will consist of factory functions, and I want to design this with scalability in mind.  Lets create my inbox.
