@@ -10,13 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/addTodoItem.js":
+/*!****************************!*\
+  !*** ./src/addTodoItem.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ addTodoItem)\n/* harmony export */ });\nfunction addTodoItem () {\n    console.log(4);\n    const task = prompt('task');\n    const description = prompt('description');\n    const dueDate = prompt('dueDate');\n    const priority = prompt('priority');\n\n    let itemDetails = [];\n    \n    itemDetails[0] = task;\n    itemDetails[1] = description;\n    itemDetails[2] = dueDate;\n    itemDetails[3] = priority;\n\n    return itemDetails;\n}\n\n//# sourceURL=webpack://todolist/./src/addTodoItem.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _todoItemDOM_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todoItemDOM.js */ \"./src/todoItemDOM.js\");\nconsole.log(3);\n\n\nconst todo = (task, description, dueDate, priority) => {\n    \n    (0,_todoItemDOM_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(task, description, dueDate, priority);\n    \n    return {\n        displayTodoItem: _todoItemDOM_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n        task,\n        description,\n        dueDate,\n        priority\n    }\n};\n\nconst test = todo('a', \"b\", \"Jan\", 1);\n\ntest.displayTodoItem();\n\n//# sourceURL=webpack://todolist/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _todoItemDOM_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todoItemDOM.js */ \"./src/todoItemDOM.js\");\n/* harmony import */ var _addTodoItem_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addTodoItem.js */ \"./src/addTodoItem.js\");\n\n\n\nconst page = document.querySelector('#webpage')\n\nconst todo = (task, description, dueDate, priority) => {\n    \n    ;(0,_todoItemDOM_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(task, description, dueDate, priority);\n    \n    return {\n        displayTodoItem: _todoItemDOM_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n        task,\n        description,\n        dueDate,\n        priority\n    }\n};\n\nlet todoList = [];\n\n// Temporary button to ensure addTodoItem function works\nconst addButton = document.createElement('button');\naddButton.textContent = \"Add\";\naddButton.addEventListener('click', () => {\n    const properties = (0,_addTodoItem_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n    console.log(properties);\n    const newTodo = todo(properties[0], properties[1], properties[2], properties[3]);\n    todoList.push(newTodo);\n});\npage.appendChild(addButton);\n\nconst test = todo('a', \"b\", \"Jan\", 1);\n\ntodoList[0] = test;\n\nfor (let i = 0; i < todoList.length; i++) {\n    todoList[i].displayTodoItem();\n}\n\n\n//# sourceURL=webpack://todolist/./src/index.js?");
 
 /***/ }),
 
