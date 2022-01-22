@@ -4,14 +4,6 @@ export default function createNavBar () {
     const navBar = document.createElement('div');
     navBar.classList.add('navbar');
 
-
-    function mouseOverStyle (navBarNode) {
-        navBarNode.addEventListener('mouseover', () => {
-            navBarNode.setAttribute('style', 'background-color = rgb(41, 228, 218)');
-        });
-    };
-
-
     const leftNavBar = document.createElement('div');
     leftNavBar.classList.add('navbarsection');
 
@@ -19,8 +11,6 @@ export default function createNavBar () {
     menuNode.setAttribute('id', 'menu');
     menuNode.textContent = "Menu";
     menuNode.classList.add('navoption');
-    mouseOverStyle(menuNode);
-
 
     const homeNode = document.createElement('button');
     homeNode.setAttribute('id', 'home');

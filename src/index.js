@@ -7,6 +7,8 @@ import setupPage from "./pageSetUp.js";
 import './style.css';
 
 const page = document.querySelector('#webpage')
+const projectsection = document.querySelector('.projectsdiv');
+
 
 const todo = (task, description, dueDate, priority, index, project) => {
     
@@ -35,14 +37,16 @@ setupPage();
 function addButton () {
     const addButton = document.createElement('button');
     addButton.textContent = "Add";
+    const todosection = document.querySelector('.todosdiv');
     addButton.addEventListener('click', () => {
         const properties = addTodoItem();
         const newTodo = todo(properties[0], properties[1], properties[2], properties[3], todoList.length, "Inbox");
         todoList.push(newTodo);
-        page.textContent="";
+        todosection.textContent= "";
         displayPage();
     });
-    page.appendChild(addButton);
+
+    todosection.appendChild(addButton);
 };
 
 const test = todo('a', "b", "Jan", 1, 0, "Inbox");
@@ -50,9 +54,6 @@ const testp = todo('b', 'c', "Feb", 2, 1)
 
 todoList[0] = test;
 todoList[1] = testp;
-
-//test
-test.displayTodoItem();
 
 //Test active
 const allNode = document.querySelector('[data-project="All"]');
@@ -70,16 +71,17 @@ function getNewTodoList (todoList) {
 }
 
 function displayPage() {
-    addButton();
     for (let i = 0; i < todoList.length; i++) {
         todoList[i].displayTodoItem();
     }
+    addButton();
     // Add delete functionality to each remove button
     const removeButtons = document.querySelectorAll('.remove');
     removeButtons.forEach(button => {
         button.addEventListener('click', () => {
             todoList.splice(button.dataset.index, 1);
-            page.textContent = "";
+            const todosection = document.querySelector('.todosdiv');
+            todosection.textContent = "";
             displayPage();
             console.log(todoList);
         })

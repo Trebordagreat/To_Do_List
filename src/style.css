@@ -95,4 +95,29 @@ body {
     color: black;
     flex: auto;
     padding-top: 30px;
+    padding-right: 110px;
+}
+
+.todoitem {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom:solid 1px rgb(240, 240, 240);
+}
+
+.todocheck {
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    border: solid 1px;
+}
+
+.todoinfodiv {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    margin: 10px;
+    margin-top: 0px;
 }
