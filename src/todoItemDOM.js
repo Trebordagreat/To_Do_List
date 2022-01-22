@@ -1,5 +1,4 @@
-export default function displayTodoItem (task, description, dueDate, priority) {
-    console.log(2);
+export default function displayTodoItem (task, description, dueDate, priority, index) {
     const page = document.querySelector('#webpage');
 
     const taskNode = document.createElement('h3');
@@ -16,4 +15,16 @@ export default function displayTodoItem (task, description, dueDate, priority) {
     page.appendChild(descriptionNode);
     page.appendChild(dueDateNode);
     page.appendChild(priorityNode);
+
+    //Index for testing
+    const indexNode = document.createElement('p');
+    indexNode.textContent = index;
+    page.appendChild(indexNode);
+
+    //Remove button
+    const removeItem = document.createElement('button');
+    removeItem.textContent = "REMOVE";
+    removeItem.setAttribute('data-index', index);
+    removeItem.classList.add('remove');
+    page.appendChild(removeItem);
 }
