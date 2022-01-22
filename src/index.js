@@ -2,6 +2,7 @@ import todoItemDom from "./todoItemDOM.js";
 import addTodoItem from "./addTodoItem.js";
 import projectDOM from "./projectsDOM.js";
 import displayNavBar from "./navBarDOM.js";
+import setupPage from "./pageSetUp.js";
 
 import './style.css';
 
@@ -28,6 +29,8 @@ const todo = (task, description, dueDate, priority, index, project) => {
 let todoList = [];
 
 displayNavBar();
+setupPage();
+
 
 projectDOM("All");
 projectDOM("Inbox");
@@ -38,7 +41,6 @@ function addButton () {
     addButton.textContent = "Add";
     addButton.addEventListener('click', () => {
         const properties = addTodoItem();
-        console.log(properties);
         const newTodo = todo(properties[0], properties[1], properties[2], properties[3], todoList.length, "Inbox");
         todoList.push(newTodo);
         page.textContent="";
@@ -52,6 +54,9 @@ const testp = todo('b', 'c', "Feb", 2, 1)
 
 todoList[0] = test;
 todoList[1] = testp;
+
+//test
+test.displayTodoItem();
 
 //Test active
 const allNode = document.querySelector('[data-project="All"]');
@@ -72,7 +77,6 @@ function displayPage() {
     addButton();
     for (let i = 0; i < todoList.length; i++) {
         todoList[i].displayTodoItem();
-        console.log(i);
     }
     // Add delete functionality to each remove button
     const removeButtons = document.querySelectorAll('.remove');

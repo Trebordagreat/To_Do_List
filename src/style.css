@@ -2,6 +2,16 @@
     text-decoration: underline;
 }
 
+body {
+    margin: 0;
+}
+
+#webpage {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
 .navbar {
     background-color: lightseagreen;
     display: flex;
@@ -27,4 +37,25 @@
 
 .navbarsection button:hover {
     background-color: rgb(31, 212, 203);
+}
+
+.content {
+    height: 100%;
+    border: solid 1px black;
+    display: flex;
+}
+
+.projectsdiv {
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    flex-direction: column;
+    flex-basis: 300px;
+}
+
+.todosdiv {
+    display: flex;
+    flex-direction: column;
+    padding-left: 90px;
+    color: black;
+    flex: auto;
 }

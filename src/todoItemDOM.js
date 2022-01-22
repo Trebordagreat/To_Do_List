@@ -1,5 +1,6 @@
 export default function displayTodoItem (task, description, dueDate, priority, index) {
-    const page = document.querySelector('#webpage');
+
+    const page = document.querySelector('.todosdiv');
 
     const taskNode = document.createElement('h3');
     const descriptionNode = document.createElement('p');
