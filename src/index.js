@@ -31,10 +31,6 @@ let todoList = [];
 displayNavBar();
 setupPage();
 
-
-projectDOM("All");
-projectDOM("Inbox");
-
 // Temporary button to ensure addTodoItem function works
 function addButton () {
     const addButton = document.createElement('button');

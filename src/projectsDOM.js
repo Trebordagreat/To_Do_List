@@ -1,8 +1,16 @@
-export default function displayProject (project) {
-    const page = document.querySelector('#webpage');
+export default function displayProject (project, selector) {
+    const page = document.querySelector(selector);
 
     const projectNode = document.createElement('button');
-    projectNode.textContent = project;
+    
+    const projectTitle = document.createElement('div');
+    projectTitle.textContent = project;
+    projectNode.appendChild(projectTitle);
+
+    const projectTotal = document.createElement('div');
+    projectTotal.textContent = "#";
+    projectNode.appendChild(projectTotal);
+
     projectNode.classList.add('project')
     projectNode.setAttribute('data-project', project);
 
