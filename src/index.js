@@ -1,6 +1,7 @@
 import todoItemDom from "./todoItemDOM.js";
 import addTodoItem from "./addTodoItem.js";
 import projectDOM from "./projectsDOM.js";
+import displayNavBar from "./navBarDOM.js";
 
 import './style.css';
 
@@ -25,6 +26,8 @@ const todo = (task, description, dueDate, priority, index, project) => {
 };
 
 let todoList = [];
+
+displayNavBar();
 
 projectDOM("All");
 projectDOM("Inbox");
@@ -90,7 +93,6 @@ projectNodes.forEach(project => {
     project.addEventListener('click', () => {
         const previousPage = document.querySelector('.active');
         previousPage.classList.remove('active');
-        project.classList.add('active');
         getNewTodoList(todoList);
         page.textContent = "";
         projectDOM("All");

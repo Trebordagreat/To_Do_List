@@ -1,3 +1,30 @@
 .active {
     text-decoration: underline;
 }
+
+.navbar {
+    background-color: lightseagreen;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.navbarsection {
+    display: flex;
+    gap: 30px;
+}
+
+.navbarsection button {
+    border: none;
+    font-size: 25px;
+    padding: 5px;
+    border-radius: 6%;
+    background-color:lightseagreen;
+    color: white;   
+}
+
+.navbarsection button:hover {
+    background-color: rgb(31, 212, 203);
+}
