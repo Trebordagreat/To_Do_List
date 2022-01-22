@@ -3,3 +3,6 @@ I plan on mimicking the popular app ToDoist for this project. The reasons of thi
 I am going to begin the project by creating the general DOM structure of a single webpage.  I will check to ensure that I can add items to this page.  These ToDoList items will consist of factory functions, and I want to design this with scalability in mind.  Lets create my inbox.
 
 The next part of this project will be allowing the user to add todos to the program.  This will have its own separate module.  The user interface for this will currently be quite weak.  After this, I will need to set up a system for keeping track of the toDos so that I can delete them as well.
+
+There are still some improvements to make with the adding and deleting functionality.  They work, but I would like to move more code into separate modules rather than them staying on index.js.  This is because I want to see how my list creation module goes first.  I am going to create an organizer module that adjust the list that needs to be displayed based on what project we are looking at.  I am going to start by adding a project property to todo factory function.  I will create inbox and today projects.  Adding more project/filters after this should be a piece of cake.
+I will have to create tabs to switch between these projects as well.
