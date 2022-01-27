@@ -36,7 +36,6 @@ export default function displayTodoItem (task, description, dueDate, priority, i
 
     //Index for testing
     const indexNode = document.createElement('p');
-    console.log(index);
     indexNode.textContent = index;
     todoNode.appendChild(indexNode);
 

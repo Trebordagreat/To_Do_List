@@ -17,7 +17,6 @@ export default function addTodoItem () {
 
     const newTodo = todo(itemDetails[0], itemDetails[1], itemDetails[2], itemDetails[3], todoList.length, "Inbox");
     todoList.push(newTodo);
-    console.log(todoList);
 
     return itemDetails;
 }

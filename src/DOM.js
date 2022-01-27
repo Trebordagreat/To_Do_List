@@ -48,6 +48,7 @@ function displayNavBar () {
 };
 
 import displayProject from './projectsDOM';
+import { changeProjectEvents } from "./buttonFunctions.js";
 
 function displayProjects () {
     const page = document.querySelector('#webpage');
@@ -95,6 +96,8 @@ function displayProjects () {
     displayProject("Inbox", ".defaultprojects");
     displayProject("All", ".defaultprojects");
     displayProject("Today", ".defaultprojects");
+
+    changeProjectEvents();
 }
 
 import { todoList, todo } from '.';
@@ -115,9 +118,7 @@ function displayTodoSection (taskList) {
 
     todoSection.appendChild(headingNode);
 
-    console.log(taskList);
-    for (let i = 0; i < todoList.length; i++) {
-        console.log(taskList[i].index);
+    for (let i = 0; i < taskList.length; i++) {
         taskList[i].updateIndex(i);
         taskList[i].displayTodoItem();
     }
@@ -129,6 +130,13 @@ function displayTodoSection (taskList) {
 
     addButtonEvent();
     removeButtonEvent();
-};
+}; 
 
-export {displayNavBar, displayProjects, displayTodoSection};
+function clearContents () {
+    const page = document.querySelector('#webpage');
+    const content = document.querySelector('.content');
+
+    page.removeChild(content);
+}
+
+export {displayNavBar, displayProjects, displayTodoSection, clearContents};

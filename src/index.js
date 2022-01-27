@@ -1,23 +1,22 @@
 import todoItemDom from "./todoItemDOM.js";
 import addTodoItem from "./addTodoItem.js";
 import projectDOM from "./projectsDOM.js";
-import {displayNavBar, displayProjects, displayTodoSection} from "./DOM.js";
+import {displayNavBar, displayProjects, displayTodoSection, clearContents} from "./DOM.js";
 import {addButtonEvent, removeButtonEvent} from "./buttonFunctions.js";
+import {generateList} from "./listLogic";
 
 import './style.css';
 
 const page = document.querySelector('#webpage')
-const projectsection = document.querySelector('.projectsdiv');
-
 
 const todo = (task, description, dueDate, priority, index, project) => {
     
     // Index is just for testing purposes
     const displayTodoItem = () => {
-        console.log(index);
         todoItemDom(task, description, dueDate, priority, index);
     }
 
+    // Needed to update todo for button functionality
     const updateIndex = (newIndex) => {
         index = newIndex;
     }
@@ -36,9 +35,14 @@ const todo = (task, description, dueDate, priority, index, project) => {
 };
 
 let todoList = [];
+let activeList = [];
 
 displayNavBar();
 displayProjects();
+
+//App starts with "All" project active
+const allNode = document.querySelector('[data-project="All"]');
+allNode.classList.add('active');
 
 const test = todo('a', "b", "Jan", 1, 0, "Inbox");
 const testp = todo('b', 'c', "Feb", 2, 1)
@@ -46,24 +50,11 @@ const testp = todo('b', 'c', "Feb", 2, 1)
 todoList[0] = test;
 todoList[1] = testp;
 
-//Test active
-const allNode = document.querySelector('[data-project="All"]');
-allNode.classList.add('active');
+activeList = generateList(todoList, "All");
+
+console.log(todoList);
+console.log(activeList);
+displayTodoSection(activeList);
 
 
-// Function has no purpose right now
-function getNewTodoList (todoList) {
-    let newTodoList = []
-    const activeTab = document.querySelector('.active');
-    for (let i = 0; i < todoList.length; i++) {
-        if (todoList[i].project === activeTab.dataset.project || activeTab.dataset.project === "All") {
-            newTodoList.push(todoList[i]);
-        }
-    }
-    return newTodoList;
-}
-
-//Test
-displayTodoSection(todoList);
-
-export {todoList, todo};
+export {todoList, todo, activeList};
