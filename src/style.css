@@ -70,6 +70,7 @@ body {
     border: none;
     font-size: 20px;
     align-items: center;
+    border-radius: 8%;
 }
 
 .project:hover,

@@ -1,8 +1,8 @@
 import todoItemDom from "./todoItemDOM.js";
 import addTodoItem from "./addTodoItem.js";
 import projectDOM from "./projectsDOM.js";
-import displayNavBar from "./navBarDOM.js";
-import setupPage from "./pageSetUp.js";
+import {displayNavBar, displayProjects, displayTodoSection} from "./DOM.js";
+import {addButtonEvent, removeButtonEvent} from "./buttonFunctions.js";
 
 import './style.css';
 
@@ -14,40 +14,31 @@ const todo = (task, description, dueDate, priority, index, project) => {
     
     // Index is just for testing purposes
     const displayTodoItem = () => {
+        console.log(index);
         todoItemDom(task, description, dueDate, priority, index);
+    }
+
+    const updateIndex = (newIndex) => {
+        index = newIndex;
     }
 
 
     return {
         displayTodoItem,
+        updateIndex,
         task,
         description,
         dueDate,
         priority,
-        project
+        project,
+        index
     }
 };
 
 let todoList = [];
 
 displayNavBar();
-setupPage();
-
-// Temporary button to ensure addTodoItem function works
-function addButton () {
-    const addButton = document.createElement('button');
-    addButton.textContent = "Add";
-    const todosection = document.querySelector('.todosdiv');
-    addButton.addEventListener('click', () => {
-        const properties = addTodoItem();
-        const newTodo = todo(properties[0], properties[1], properties[2], properties[3], todoList.length, "Inbox");
-        todoList.push(newTodo);
-        todosection.textContent= "";
-        displayPage();
-    });
-
-    todosection.appendChild(addButton);
-};
+displayProjects();
 
 const test = todo('a', "b", "Jan", 1, 0, "Inbox");
 const testp = todo('b', 'c', "Feb", 2, 1)
@@ -59,6 +50,8 @@ todoList[1] = testp;
 const allNode = document.querySelector('[data-project="All"]');
 allNode.classList.add('active');
 
+
+// Function has no purpose right now
 function getNewTodoList (todoList) {
     let newTodoList = []
     const activeTab = document.querySelector('.active');
@@ -70,38 +63,7 @@ function getNewTodoList (todoList) {
     return newTodoList;
 }
 
-function displayPage() {
-    for (let i = 0; i < todoList.length; i++) {
-        todoList[i].displayTodoItem();
-    }
-    addButton();
-    // Add delete functionality to each remove button
-    const removeButtons = document.querySelectorAll('.remove');
-    removeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            todoList.splice(button.dataset.index, 1);
-            const todosection = document.querySelector('.todosdiv');
-            todosection.textContent = "";
-            displayPage();
-            console.log(todoList);
-        })
-    })
-}
+//Test
+displayTodoSection(todoList);
 
-displayPage();
-
-const projectNodes = document.querySelectorAll('.project');
-projectNodes.forEach(project => {
-    project.addEventListener('click', () => {
-        const previousPage = document.querySelector('.active');
-        previousPage.classList.remove('active');
-        getNewTodoList(todoList);
-        page.textContent = "";
-        projectDOM("All");
-        projectDOM("Inbox");
-        displayPage()
-    })
-})
-
-console.log(todoList);
-
+export {todoList, todo};
