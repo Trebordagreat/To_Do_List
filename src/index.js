@@ -36,6 +36,7 @@ const todo = (task, description, dueDate, priority, index, project) => {
 
 let todoList = [];
 let activeList = [];
+let projects = [];
 
 displayNavBar();
 displayProjects();
@@ -57,4 +58,4 @@ console.log(activeList);
 displayTodoSection(activeList);
 
 
-export {todoList, todo, activeList};
+export {todoList, todo, activeList, projects};

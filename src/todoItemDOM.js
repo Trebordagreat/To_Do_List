@@ -30,8 +30,8 @@ export default function displayTodoItem (task, description, dueDate, priority, i
     infoDiv.appendChild(taskNode);
     infoDiv.appendChild(descriptionNode);
     infoDiv.appendChild(dueDateNode);
+    
     todoNode.appendChild(priorityNode);
-
     todoNode.appendChild(infoDiv);
 
     //Index for testing
