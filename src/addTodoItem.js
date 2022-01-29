@@ -1,11 +1,11 @@
 import { todoList, todo } from ".";
 
 export default function addTodoItem () {
-    const task = prompt('task');
-    const description = prompt('description');
-    const dueDate = prompt('dueDate');
-    const priority = prompt('priority');
-    const project = prompt('project');
+    const task = document.querySelector('.detailstask').value;
+    const description = document.querySelector('.detailsdescription').value;
+    const dueDate = document.querySelector('.detailsdate').textContent;
+    const priority = document.querySelector('.detailspriority').textContent;
+    const project = document.querySelector('.detailsproject').textContent;
 
     let itemDetails = [];
     

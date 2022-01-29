@@ -51,6 +51,8 @@ const testp = todo('b', 'c', "Feb", 2, 1)
 todoList[0] = test;
 todoList[1] = testp;
 
+projects[0] = "Inbox";
+
 activeList = generateList(todoList, "All");
 
 console.log(todoList);

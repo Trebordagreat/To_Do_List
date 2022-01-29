@@ -3,15 +3,19 @@ import { displayProjects, displayTodoSection, clearContents } from "./DOM";
 import addTodoItem from "./addTodoItem";
 import { generateList } from "./listLogic";
 import displayProject from "./projectsDOM";
+import {displayDetailInputs, displayDetailSelections, displayDetailButtons} from "./taskDetailsDOM";
 
 function addButtonEvent () {
     const addButtons = document.querySelectorAll('.addtask');
     addButtons.forEach(addButton => {
         addButton.addEventListener('click', () => {
-            addTodoItem();
+            // Testing  addTodoItem();
             const currentProject = document.querySelector('.active');
             const currentList = generateList(todoList, currentProject.dataset.project)
             displayTodoSection(currentList);
+            displayDetailInputs();
+            displayDetailSelections();
+            displayDetailButtons("add");
         })
     })
 }

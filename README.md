@@ -10,3 +10,8 @@ I will have to create tabs to switch between these projects as well.
 I have ran into issues testing out switching between projects.  Mainly, new elements are created each time I switch between the projects.  For this next phase, I am focusing on adding the DOM elements in different sections as a basis for my UI.  This will also allow me to properly create organizer code.  Once I have created a nav section, a project section, and a task section, I will clean up the current module organization on index.js.  Not making UI super clean just yet.
 
 Great discovery that has helped me out immensely! Exporting my todolist array and changing it in another module affects the array for all of the modules.  This was the missing piece that was causing me so much confusion.
+
+The nice part about Todoist is that the add and edit prompts look extremely similar.  I can use this to my advantage and create both displays using the same function.  One of the function's arguments can be the type of change being made which will display the details differently depending on the type of request.  I will have to input the ability for details to appear in the middle of the list in my DOM.js folder.
+
+01/29/22
+Just realized that I have been naming classes with a non-conventional format.  Apparently, most programmers place dashes between different words when they are creating classes for their HTML elements.

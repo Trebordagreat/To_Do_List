@@ -107,6 +107,7 @@ function displayProjects () {
 }
 
 import { todoList, todo } from '.';
+import { displayDetails } from './taskDetailsDOM';
 
 function displayTodoSection (taskList) {
 
@@ -123,6 +124,7 @@ function displayTodoSection (taskList) {
 
     todoSection.appendChild(headingNode);
 
+    console.log(taskList);
     for (let i = 0; i < todoList.length; i++) {
         todoList[i].updateIndex(i);
     }
@@ -133,6 +135,7 @@ function displayTodoSection (taskList) {
 
     const addButton = document.createElement('button');
     addButton.classList.add('addtask');
+    addButton.setAttribute('id', 'addbuttonpage');
     addButton.textContent = "Add task";
     todoSection.appendChild(addButton);
 
