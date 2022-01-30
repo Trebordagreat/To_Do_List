@@ -1,4 +1,4 @@
-import {addButtonEvent, removeButtonEvent} from "./buttonFunctions.js";
+import {addButtonEvent, editButtonEvent, removeButtonEvent} from "./buttonFunctions.js";
 
 
 function displayNavBar () {
@@ -107,9 +107,9 @@ function displayProjects () {
 }
 
 import { todoList, todo } from '.';
-import { displayDetails } from './taskDetailsDOM';
+import { displayDetailInputs, displayDetailSelections, displayDetailButtons} from './taskDetailsDOM';
 
-function displayTodoSection (taskList) {
+function displayTodoSection (taskList, index) {
 
     const todoSection = document.querySelector('.todosdiv');
     
@@ -124,13 +124,18 @@ function displayTodoSection (taskList) {
 
     todoSection.appendChild(headingNode);
 
-    console.log(taskList);
     for (let i = 0; i < todoList.length; i++) {
         todoList[i].updateIndex(i);
     }
 
+    // Important for edit button
     for (let i = 0; i < taskList.length; i++) {
-        taskList[i].displayTodoItem()
+        if (taskList[i].index == index) {
+            displayDetailInputs();
+            displayDetailSelections();
+            displayDetailButtons('edit', index);
+        }
+        else {taskList[i].displayTodoItem()}
     }
 
     const addButton = document.createElement('button');
@@ -140,7 +145,9 @@ function displayTodoSection (taskList) {
     todoSection.appendChild(addButton);
 
     addButtonEvent();
+    editButtonEvent();
     removeButtonEvent();
+
 }; 
 
 function clearContents () {

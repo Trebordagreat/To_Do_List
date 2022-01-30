@@ -123,6 +123,10 @@ body {
     margin-top: 0px;
 }
 
+.todo-buttons-div {
+    display: flex;
+}
+
 .detaildiv {
     display: flex;
     flex-direction: column;
@@ -155,7 +159,8 @@ body {
 }
 
 .detailsbottomdiv button,
-.cancelbutton {
+.cancelbutton,
+.todo-buttons-div button {
     border: 1px solid rgb(220, 220, 220);
     border-radius: 10%;
     background-color: white;
@@ -167,7 +172,8 @@ body {
 }
 
 .detailsbottomdiv button:hover,
-.cancelbutton:hover {
+.cancelbutton:hover,
+.todo-buttons-div button:hover {
     background-color: rgb(240, 240, 240);
 }
 

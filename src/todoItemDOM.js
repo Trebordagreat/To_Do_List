@@ -39,12 +39,24 @@ export default function displayTodoItem (task, description, dueDate, priority, i
     indexNode.textContent = index;
     todoNode.appendChild(indexNode);
 
+    const buttonsDiv = document.createElement('div');
+    buttonsDiv.classList.add('todo-buttons-div');
+
+    //Edit button
+    const editItem = document.createElement('button');
+    editItem.textContent = "Edit";
+    editItem.setAttribute('data-index', index);
+    editItem.classList.add('edit');
+    buttonsDiv.appendChild(editItem);
+
     //Remove button
     const removeItem = document.createElement('button');
     removeItem.textContent = "REMOVE";
     removeItem.setAttribute('data-index', index);
     removeItem.classList.add('remove');
-    todoNode.appendChild(removeItem);
+    buttonsDiv.appendChild(removeItem);
+
+    todoNode.appendChild(buttonsDiv);
 
     content.appendChild(todoNode);
 }

@@ -13,9 +13,20 @@ function addButtonEvent () {
             const currentProject = document.querySelector('.active');
             const currentList = generateList(todoList, currentProject.dataset.project)
             displayTodoSection(currentList);
-            displayDetailInputs();
+            displayDetailInputs('add');
             displayDetailSelections();
             displayDetailButtons("add");
+        })
+    })
+}
+
+function editButtonEvent() {
+    const editButtons = document.querySelectorAll('.edit');
+    editButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const currentProject = document.querySelector('.active');
+            const currentList = generateList(todoList, currentProject.dataset.project);
+            displayTodoSection(currentList, button.dataset.index);
         })
     })
 }
@@ -63,4 +74,4 @@ function addProjectEvent () {
     })
 }
 
-export {addButtonEvent, removeButtonEvent, changeProjectEvents, addProjectEvent};
+export {addButtonEvent, editButtonEvent, removeButtonEvent, changeProjectEvents, addProjectEvent};

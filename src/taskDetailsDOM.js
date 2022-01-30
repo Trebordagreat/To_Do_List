@@ -1,15 +1,17 @@
 // This is going to be used for both add and edit task.  Todoist is inspiration here.
 import { projects } from './index';
-import { cancel, changeTaskDate, addTask } from './editButtons';
+import { cancel, changeTaskDate, addTask, editTask } from './editButtons';
 
-function displayDetailInputs () {
+function displayDetailInputs (change) {
 
     const todoSection = document.querySelector('.todosdiv');
 
     //Remove Add task button
-    const previousAddButton = document.querySelector('#addbuttonpage');
-    todoSection.removeChild(previousAddButton);
-
+    if (change === 'add') {
+        const previousAddButton = document.querySelector('#addbuttonpage');
+        todoSection.removeChild(previousAddButton);
+    }
+    
     const detailsNode = document.createElement('div');
     detailsNode.classList.add('detaildiv');
 
@@ -80,7 +82,7 @@ function displayDetailSelections () {
     changeTaskDate();
 }
 
-function displayDetailButtons (change) {
+function displayDetailButtons (change, index) {
     const detailButtons = document.createElement('div');
     detailButtons.classList.add('detailbuttonsdiv');
 
@@ -107,7 +109,11 @@ function displayDetailButtons (change) {
     todoSection.appendChild(detailButtons);
 
     //Button Functionality
-    addTask();
+    if (change === 'add') {
+        addTask();
+    }
+    else {editTask(index)}
+    
     cancel();
 }
 

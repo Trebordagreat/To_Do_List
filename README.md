@@ -15,3 +15,6 @@ The nice part about Todoist is that the add and edit prompts look extremely simi
 
 01/29/22
 Just realized that I have been naming classes with a non-conventional format.  Apparently, most programmers place dashes between different words when they are creating classes for their HTML elements.
+
+01/30/22
+For editing the tasks, instead of editing the properties of the todo, I can just splice the old todo out of the array and insert a new edit todo in its place.  This will be much simpler than editing the properties of the current todo.  Hoping to finish this project by the end of day today.  To bring up the task details screen, I will need to add an index argument to the tododisplay function that displays the details of a task instead of the simplified display at this index.

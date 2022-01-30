@@ -2,6 +2,7 @@ import {displayTodoSection} from './DOM';
 import { generateList } from './listLogic';
 import { todoList } from './index';
 import addTodoItem from "./addTodoItem";
+import editTodoItem from './editTodoItem';
 
 
 
@@ -30,6 +31,16 @@ function addTask () {
     })
 }
 
+function editTask (index) {
+    const editTaskButton = document.querySelector('.editconfirm');
+    editTaskButton.addEventListener('click', () => {
+        editTodoItem(index);
+        const currentProject = document.querySelector('.active');
+        const resetList = generateList(todoList, currentProject.dataset.project);
+        displayTodoSection(resetList);
+    })
+}
+
 function cancel () {
     const cancelButton = document.querySelector('.cancelbutton');
     cancelButton.addEventListener('click', () => {
@@ -39,4 +50,4 @@ function cancel () {
     })
 }
 
-export {changeTaskDate, addTask, cancel};
+export {changeTaskDate, addTask, editTask, cancel};
