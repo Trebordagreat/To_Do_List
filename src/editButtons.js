@@ -16,8 +16,21 @@ function changeTaskDate () {
 
 function changeTaskProject () {
     const projectButton = document.querySelector('.detailsproject');
-    projectButton.addEventListener('click', () => {
-        console.log(3)
+    const projectOptions = document.querySelectorAll('.project-option');
+    projectOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            projectButton.textContent = option.textContent;
+        })
+    })
+}
+
+function changeTaskPriority () {
+    const priorityButton = document.querySelector('.detailspriority');
+    const priorityOptions = document.querySelectorAll('.priority-option');
+    priorityOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            priorityButton.textContent = option.textContent;
+        })
     })
 }
 
@@ -50,4 +63,4 @@ function cancel () {
     })
 }
 
-export {changeTaskDate, addTask, editTask, cancel};
+export {changeTaskDate, changeTaskProject, changeTaskPriority, addTask, editTask, cancel};

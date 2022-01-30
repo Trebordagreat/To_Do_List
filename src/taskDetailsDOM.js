@@ -1,8 +1,8 @@
 // This is going to be used for both add and edit task.  Todoist is inspiration here.
 import { projects } from './index';
-import { cancel, changeTaskDate, addTask, editTask } from './editButtons';
+import { cancel, changeTaskDate, changeTaskProject, addTask, editTask, changeTaskPriority } from './editButtons';
 
-function displayDetailInputs (change) {
+function displayDetailInputs (change, todo) {
 
     const todoSection = document.querySelector('.todosdiv');
 
@@ -25,23 +25,29 @@ function displayDetailInputs (change) {
     descriptionInput.setAttribute('placeholder', 'Description');
     descriptionInput.setAttribute('maxlength', '416');
 
+    if(change === 'edit') {
+        taskInput.value = todo.task;
+        descriptionInput.value = todo.description;
+    }
+
     detailsNode.appendChild(taskInput);
     detailsNode.appendChild(descriptionInput);
 
     todoSection.appendChild(detailsNode);
 }
 
-function displayDetailSelections () {
+function displayDetailSelections (change, todo) {
 
     const detailsBottom = document.createElement('div');
     detailsBottom.classList.add('detailsbottomdiv');
 
     // Need for choosing specific priority or project
-    function createDropdown (list) {
+    function createDropdown (list, type) {
         const dropdown = document.createElement('div');
         dropdown.classList.add('dropdown-content');
         for (let i = 0; i < list.length; i++) {
             const dropdownItem = document.createElement('button');
+            dropdownItem.classList.add(type);
             dropdownItem.textContent = list[i];
             dropdown.appendChild(dropdownItem);
         }
@@ -57,9 +63,16 @@ function displayDetailSelections () {
     projectDiv.classList.add('dropdown');
     const projectButton = document.createElement('button');
     projectButton.classList.add('detailsproject', 'dropbtn');
-    projectButton.textContent= "Inbox";
+    // Depends on the project page
+    const currentProject = document.querySelector('.todoheading');
+    if (currentProject.textContent !== 'All') {
+        projectButton.textContent = currentProject.textContent;
+    }
+    else {
+        projectButton.textContent= "Inbox";
+    }
     projectDiv.appendChild(projectButton);
-    const projectDropdown = createDropdown(projects);
+    const projectDropdown = createDropdown(projects, 'project-option');
     projectDiv.appendChild(projectDropdown); 
     
     const priorityDiv = document.createElement('div');
@@ -69,9 +82,15 @@ function displayDetailSelections () {
     priorityButton.textContent = "Low";
     priorityDiv.appendChild(priorityButton);
     let priorities = ['Urgent', 'Timely', 'Casual', 'Low'];
-    const priorityDropdown = createDropdown(priorities);
+    const priorityDropdown = createDropdown(priorities, 'priority-option');
     priorityDiv.appendChild(priorityDropdown);
 
+    //Edit display
+    if (change === 'edit') {
+        dateButton.textContent = todo.dueDate;
+        projectButton.textContent = todo.project;
+        priorityButton.textContent = todo.priority;
+    }
     const detailsNode = document.querySelector('.detaildiv');
     detailsBottom.appendChild(dateButton);
     detailsBottom.appendChild(projectDiv);
@@ -80,6 +99,8 @@ function displayDetailSelections () {
 
     //Button Functionality
     changeTaskDate();
+    changeTaskProject();
+    changeTaskPriority();
 }
 
 function displayDetailButtons (change, index) {

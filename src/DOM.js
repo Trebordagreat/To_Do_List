@@ -29,6 +29,7 @@ function displayNavBar () {
 
     const addTaskNode = document.createElement('button');
     addTaskNode.setAttribute('id', 'addTask');
+    addTaskNode.classList.add('addtask');
     addTaskNode.textContent = "Add Task";
     menuNode.classList.add('navoption');
 
@@ -119,7 +120,7 @@ function displayTodoSection (taskList, index) {
     const currentProject = document.querySelector('.active');
 
     const headingNode = document.createElement('div');
-    headingNode.classList.add(".todoheading");
+    headingNode.classList.add("todoheading");
     headingNode.textContent = currentProject.dataset.project;
 
     todoSection.appendChild(headingNode);
@@ -131,8 +132,8 @@ function displayTodoSection (taskList, index) {
     // Important for edit button
     for (let i = 0; i < taskList.length; i++) {
         if (taskList[i].index == index) {
-            displayDetailInputs();
-            displayDetailSelections();
+            displayDetailInputs('edit', taskList[i]);
+            displayDetailSelections('edit', taskList[i]);
             displayDetailButtons('edit', index);
         }
         else {taskList[i].displayTodoItem()}

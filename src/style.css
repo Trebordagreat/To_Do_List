@@ -123,6 +123,19 @@ body {
     margin-top: 0px;
 }
 
+.taskname {
+    font-size: 16px;
+}
+
+.taskdescription {
+    font-size: 12px;
+    color: rgb(136, 136, 136)
+}
+
+.taskdate {
+    font-size: 12px;
+}
+
 .todo-buttons-div {
     display: flex;
 }
