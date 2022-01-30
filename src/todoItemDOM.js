@@ -7,6 +7,8 @@ export default function displayTodoItem (task, description, dueDate, priority, i
 
     const checkNode = document.createElement('button');
     checkNode.classList.add('todocheck');
+    checkNode.classList.add(priority);
+    checkNode.setAttribute('data-index', index);
     todoNode.appendChild(checkNode);
 
     const infoDiv = document.createElement('div');

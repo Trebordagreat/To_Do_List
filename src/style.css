@@ -99,6 +99,17 @@ body {
     padding-right: 110px;
 }
 
+.heading-node {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todoheading {
+    font-size: 30px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
 .todoitem {
     display: flex;
     justify-content: space-between;
@@ -112,7 +123,7 @@ body {
     background-color: white;
     border-radius: 50%;
     display: inline-block;
-    border: solid 1px;
+    border: solid 3px;
 }
 
 .todoinfodiv {
@@ -121,6 +132,34 @@ body {
     flex: auto;
     margin: 10px;
     margin-top: 0px;
+}
+
+.Urgent {
+    border-color: red
+}
+
+.Urgent:hover {
+    background-color: rgb(255, 140, 140);
+}
+
+.Timely {
+    border-color: orange;
+}
+
+.Timely:hover {
+    background-color: rgb(255, 216, 140);
+}
+
+.Casual {
+    border-color: blue;
+}
+
+.Casual:hover {
+    background-color: rgb(140, 140, 250);
+}
+
+.Low:hover {
+    background-color: rgb(140, 140, 140);
 }
 
 .taskname {
@@ -138,6 +177,10 @@ body {
 
 .todo-buttons-div {
     display: flex;
+}
+
+#addbuttonpage {
+    margin-bottom: 20px;
 }
 
 .detaildiv {
@@ -173,7 +216,8 @@ body {
 
 .detailsbottomdiv button,
 .cancelbutton,
-.todo-buttons-div button {
+.todo-buttons-div button,
+.heading-node button {
     border: 1px solid rgb(220, 220, 220);
     border-radius: 10%;
     background-color: white;
@@ -186,7 +230,8 @@ body {
 
 .detailsbottomdiv button:hover,
 .cancelbutton:hover,
-.todo-buttons-div button:hover {
+.todo-buttons-div button:hover,
+.heading-node button:hover {
     background-color: rgb(240, 240, 240);
 }
 

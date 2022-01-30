@@ -1,4 +1,4 @@
-import {displayTodoSection} from './DOM';
+import {displayTodoSection, clearContents, displayProjects} from './DOM';
 import { generateList } from './listLogic';
 import { todoList } from './index';
 import addTodoItem from "./addTodoItem";
@@ -40,6 +40,10 @@ function addTask () {
         addTodoItem();
         const currentProject = document.querySelector('.active');
         const resetList = generateList(todoList, currentProject.dataset.project);
+        clearContents();
+        displayProjects();
+        const sameProject = document.querySelector('[data-project=' + currentProject.dataset.project);
+        sameProject.classList.add('active');
         displayTodoSection(resetList);
     })
 }
@@ -50,6 +54,7 @@ function editTask (index) {
         editTodoItem(index);
         const currentProject = document.querySelector('.active');
         const resetList = generateList(todoList, currentProject.dataset.project);
+
         displayTodoSection(resetList);
     })
 }

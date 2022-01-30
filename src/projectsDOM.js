@@ -1,3 +1,6 @@
+import { todoList } from './index';
+import { generateList } from './listLogic';
+
 export default function displayProject (project, selector) {
     const page = document.querySelector(selector);
 
@@ -8,7 +11,7 @@ export default function displayProject (project, selector) {
     projectNode.appendChild(projectTitle);
 
     const projectTotal = document.createElement('div');
-    projectTotal.textContent = "#";
+    projectTotal.textContent = generateList(todoList, project).length;
     projectNode.appendChild(projectTotal);
 
     projectNode.classList.add('project')

@@ -38,22 +38,24 @@ let todoList = [];
 let activeList = [];
 let projects = [];
 
+
+
+
+
+const test = todo('a', "b", "Jan", 'Timely', 0, "Inbox");
+const testp = todo('b', 'c', "Feb", 'Urgent', 1);
+
+todoList[0] = test;
+todoList[1] = testp;
+
+activeList = generateList(todoList, "All");
+
 displayNavBar();
 displayProjects();
 
 //App starts with "All" project active
 const allNode = document.querySelector('[data-project="All"]');
 allNode.classList.add('active');
-
-const test = todo('a', "b", "Jan", 1, 0, "Inbox");
-const testp = todo('b', 'c', "Feb", 2, 1)
-
-todoList[0] = test;
-todoList[1] = testp;
-
-projects[0] = "Inbox";
-
-activeList = generateList(todoList, "All");
 
 console.log(todoList);
 console.log(activeList);

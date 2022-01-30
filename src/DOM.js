@@ -1,4 +1,4 @@
-import {addButtonEvent, editButtonEvent, removeButtonEvent} from "./buttonFunctions.js";
+import {addButtonEvent, completeTask, editButtonEvent, editProjectEvent, removeButtonEvent, removeProjectEvent} from "./buttonFunctions.js";
 
 
 function displayNavBar () {
@@ -100,7 +100,9 @@ function displayProjects () {
     displayProject("Today", ".defaultprojects");
 
     for (let i = 0; i < projects.length; i++) {
-        displayProject(projects[i], ".customprojects");
+        if (projects[i] !== "Inbox") {
+            displayProject(projects[i], ".customprojects");
+        } 
     }
 
     changeProjectEvents();
@@ -118,10 +120,32 @@ function displayTodoSection (taskList, index) {
     todoSection.textContent = "";
 
     const currentProject = document.querySelector('.active');
+    const projshort = currentProject.dataset.project;
 
     const headingNode = document.createElement('div');
-    headingNode.classList.add("todoheading");
-    headingNode.textContent = currentProject.dataset.project;
+    headingNode.classList.add('heading-node');
+    const heading = document.createElement('div');
+    heading.classList.add("todoheading");
+    heading.textContent = projshort;
+    headingNode.appendChild(heading);
+
+    // Next part is for custom projects only
+    if (projshort !== "Inbox" && projshort !== "All" && projshort !== 'Today') {
+        const headingButtons = document.createElement('div');
+        headingButtons.classList.add('heading-buttons');
+        const editProject = document.createElement('button');
+        editProject.textContent = "Edit Project";
+        editProject.classList.add('project-edit-button');
+        editProject.setAttribute('data-project', projshort);
+        const removeProject = document.createElement('button');
+        removeProject.textContent = "Remove Project";
+        removeProject.classList.add('project-remove-button');
+        removeProject.setAttribute('data-project', projshort);
+        headingButtons.appendChild(editProject);
+        headingButtons.appendChild(removeProject);
+    
+        headingNode.appendChild(headingButtons);
+    }
 
     todoSection.appendChild(headingNode);
 
@@ -148,7 +172,11 @@ function displayTodoSection (taskList, index) {
     addButtonEvent();
     editButtonEvent();
     removeButtonEvent();
-
+    completeTask();
+    if (projshort !== "Inbox" && projshort !== "All" && projshort !== 'Today') {
+        editProjectEvent();
+        removeProjectEvent();
+    }
 }; 
 
 function clearContents () {

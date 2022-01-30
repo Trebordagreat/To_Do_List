@@ -41,7 +41,7 @@ function displayDetailSelections (change, todo) {
     const detailsBottom = document.createElement('div');
     detailsBottom.classList.add('detailsbottomdiv');
 
-    // Need for choosing specific priority or project
+    // Needed for choosing specific priority or project
     function createDropdown (list, type) {
         const dropdown = document.createElement('div');
         dropdown.classList.add('dropdown-content');
@@ -72,7 +72,11 @@ function displayDetailSelections (change, todo) {
         projectButton.textContent= "Inbox";
     }
     projectDiv.appendChild(projectButton);
-    const projectDropdown = createDropdown(projects, 'project-option');
+    let projectOptions = projects;
+    if (projectOptions[0] !== 'Inbox') {
+        projectOptions.splice(0, 0, 'Inbox')
+    }
+    const projectDropdown = createDropdown(projectOptions, 'project-option');
     projectDiv.appendChild(projectDropdown); 
     
     const priorityDiv = document.createElement('div');
