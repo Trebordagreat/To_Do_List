@@ -18,3 +18,7 @@ Just realized that I have been naming classes with a non-conventional format.  A
 
 01/30/22
 For editing the tasks, instead of editing the properties of the todo, I can just splice the old todo out of the array and insert a new edit todo in its place.  This will be much simpler than editing the properties of the current todo.  Hoping to finish this project by the end of day today.  To bring up the task details screen, I will need to add an index argument to the tododisplay function that displays the details of a task instead of the simplified display at this index.
+
+
+02/02/22
+Close to finishing TodoList project.  I need to configure the dates and local storage functions.  These both will provide me with practice with reading and implementing information from documentation.

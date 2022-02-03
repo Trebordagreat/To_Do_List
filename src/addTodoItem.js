@@ -1,9 +1,19 @@
 import { todoList, todo } from ".";
+import { format } from "date-fns";
 
 export default function addTodoItem () {
     const task = document.querySelector('.detailstask').value;
     const description = document.querySelector('.detailsdescription').value;
-    const dueDate = document.querySelector('.detailsdate').textContent;
+    const date = new Date(document.querySelector('.detailsdate').value);
+    console.log(date.getUTCDate());
+    let dueDate;
+    if (!date) {
+        dueDate = "";
+    }
+    else {
+        dueDate = format(new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()), 'MMMdo', 'UTC');
+        console.log(dueDate);
+    }
     const priority = document.querySelector('.detailspriority').textContent;
     const project = document.querySelector('.detailsproject').textContent;
 
@@ -20,4 +30,3 @@ export default function addTodoItem () {
 
     return itemDetails;
 }
-

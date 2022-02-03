@@ -3,6 +3,7 @@ import { generateList } from './listLogic';
 import { todoList } from './index';
 import addTodoItem from "./addTodoItem";
 import editTodoItem from './editTodoItem';
+import {format} from 'date-fns'
 
 
 
@@ -10,6 +11,7 @@ function changeTaskDate () {
     const dateButton = document.querySelector('.detailsdate');
     dateButton.addEventListener('click', () => {
         const newDate = prompt("Date?");
+        newDate = format (newDate, 'MMM-do');
         dateButton.textContent = newDate;
     })
 }

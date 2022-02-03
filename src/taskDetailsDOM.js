@@ -1,6 +1,7 @@
 // This is going to be used for both add and edit task.  Todoist is inspiration here.
 import { projects } from './index';
 import { cancel, changeTaskDate, changeTaskProject, addTask, editTask, changeTaskPriority } from './editButtons';
+import _ from 'date-fns';
 
 function displayDetailInputs (change, todo) {
 
@@ -55,7 +56,8 @@ function displayDetailSelections (change, todo) {
     }
 
     const dateDiv = document.createElement('div');
-    const dateButton = document.createElement('button');
+    const dateButton = document.createElement('input');
+    dateButton.setAttribute('type', 'date');
     dateButton.classList.add('detailsdate');
     dateButton.textContent = "Schedule";
     
@@ -91,7 +93,7 @@ function displayDetailSelections (change, todo) {
 
     //Edit display
     if (change === 'edit') {
-        dateButton.textContent = todo.dueDate;
+        dateButton.setAttribute('placeholder', todo.dueDate);
         projectButton.textContent = todo.project;
         priorityButton.textContent = todo.priority;
     }
@@ -102,7 +104,6 @@ function displayDetailSelections (change, todo) {
     detailsNode.appendChild(detailsBottom);
 
     //Button Functionality
-    changeTaskDate();
     changeTaskProject();
     changeTaskPriority();
 }

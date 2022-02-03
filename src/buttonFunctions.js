@@ -57,6 +57,10 @@ function removeButtonEvent () {
             }
             const currentProject = document.querySelector('.active');
             const currentList = generateList(todoList, currentProject.dataset.project)
+            clearContents();
+            displayProjects();
+            const sameProject = document.querySelector('[data-project=' + currentProject.dataset.project);
+            sameProject.classList.add('active');
             displayTodoSection(currentList);
         })
     })
