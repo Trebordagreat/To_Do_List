@@ -6,7 +6,8 @@ export default function editTodoItem (index) {
     const description = document.querySelector('.detailsdescription').value;
     const date = new Date(document.querySelector('.detailsdate').value);
     let dueDate;
-    if (!date) {
+    console.log(date);
+    if (isNaN(date)) {
         dueDate = "";
     }
     else {
@@ -25,4 +26,5 @@ export default function editTodoItem (index) {
 
     const newTodo = todo(itemDetails[0], itemDetails[1], itemDetails[2], itemDetails[3], index, itemDetails[4]);
     todoList.splice(index, 1, newTodo);
+    localStorage.setItem('todos', JSON.stringify(todoList));
 }

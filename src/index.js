@@ -21,7 +21,6 @@ const todo = (task, description, dueDate, priority, index, project) => {
         index = newIndex;
     }
 
-
     return {
         displayTodoItem,
         updateIndex,
@@ -38,15 +37,32 @@ let todoList = [];
 let activeList = [];
 let projects = [];
 
+if (!localStorage.getItem('todos')) {
+    localStorage.setItem('todos', JSON.stringify(todoList));
+}
+else {
+    todoList = JSON.parse(localStorage.getItem('todos') || '[]');
+}
 
+function addMethods (object) {
+    object.updateIndex = function (newIndex) {
+        object.index = newIndex;
+    }
+    object.displayTodoItem = function () {
+        todoItemDom(object.task, object.description, object.dueDate, object.priority, object.index);
+    }
+}
 
+for (let i = 0; i < todoList.length; i++) {
+    addMethods(todoList[i]);
+}
 
-
-const test = todo('a', "b", "Jan", 'Timely', 0, "Inbox");
-const testp = todo('b', 'c', "Feb", 'Urgent', 1);
-
-todoList[0] = test;
-todoList[1] = testp;
+if(!localStorage.getItem('projects')) {
+    localStorage.setItem('projects', JSON.stringify(projects));
+}
+else {
+    projects = JSON.parse(localStorage.getItem('projects') || '[]');
+}
 
 activeList = generateList(todoList, "All");
 
@@ -57,9 +73,7 @@ displayProjects();
 const allNode = document.querySelector('[data-project="All"]');
 allNode.classList.add('active');
 
-console.log(todoList);
-console.log(activeList);
 displayTodoSection(activeList);
 
 
-export {todoList, todo, activeList, projects};
+export {todoList, todo, activeList, projects, addMethods};

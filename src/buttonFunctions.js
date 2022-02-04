@@ -55,6 +55,7 @@ function removeButtonEvent () {
             for (let i = 0; i < todoList.length; i++) {
                 todoList[i].index = i;
             }
+            localStorage.setItem('todos', JSON.stringify(todoList));
             const currentProject = document.querySelector('.active');
             const currentList = generateList(todoList, currentProject.dataset.project)
             clearContents();
@@ -85,6 +86,7 @@ function addProjectEvent () {
     addProjectButton.addEventListener('click', () => {
         const newProject = prompt("New Project Name?");
         projects.push(newProject);
+        localStorage.setItem('projects', JSON.stringify(projects));
         clearContents();
         displayProjects();
         const currentProject = document.querySelector('[data-project=' + newProject + ']');
@@ -109,6 +111,7 @@ function editProjectEvent () {
                 todoList[i].project = newName;
             }
         }
+        localStorage.setItem('projects', JSON.stringify(projects));
         clearContents();
         displayProjects();
         const renamedProject = document.querySelector('[data-project=' + newName + ']');
@@ -135,6 +138,7 @@ function removeProjectEvent () {
                     todoList.splice(i, 1);
                 }
             }
+            localStorage.setItem('projects', JSON.stringify(projects));
             clearContents();
             displayProjects();
             const allProject = document.querySelector('[data-project=All]');
