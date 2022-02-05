@@ -37,7 +37,6 @@ body {
 
 .content {
     height: 100%;
-    border: solid 1px black;
     display: flex;
 }
 
@@ -97,6 +96,7 @@ body {
     flex: auto;
     padding-top: 30px;
     padding-right: 110px;
+    background-color: white;
 }
 
 .heading-node {
@@ -123,7 +123,7 @@ body {
     background-color: white;
     border-radius: 50%;
     display: inline-block;
-    border: solid 3px;
+    border: solid 1px;
 }
 
 .todoinfodiv {
@@ -217,7 +217,8 @@ body {
 .detailsbottomdiv button,
 .cancelbutton,
 .todo-buttons-div button,
-.heading-node button {
+.heading-node button,
+.dropbtn {
     border: 1px solid rgb(220, 220, 220);
     border-radius: 10%;
     background-color: white;
@@ -231,13 +232,15 @@ body {
 .detailsbottomdiv button:hover,
 .cancelbutton:hover,
 .todo-buttons-div button:hover,
-.heading-node button:hover {
+.heading-node button:hover,
+.dropbtn:hover {
     background-color: rgb(240, 240, 240);
 }
 
 .detailbuttonsdiv {
     display: flex;
     gap: 30px;
+    margin-bottom: 10px;
 }
 
 .confirm {
@@ -267,4 +270,12 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.home-change-div {
+    display: flex;
+    gap: 50px;
+    font-size: 20px;
+    align-items: center;
+    margin-top: 40px;
 }

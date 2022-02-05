@@ -11,7 +11,7 @@ function changeTaskDate () {
     const dateButton = document.querySelector('.detailsdate');
     dateButton.addEventListener('click', () => {
         const newDate = prompt("Date?");
-        newDate = format (newDate, 'MMM-do');
+        newDate = format(newDate, 'MMM-do');
         dateButton.textContent = newDate;
     })
 }

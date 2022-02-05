@@ -25,6 +25,7 @@ function completeTask () {
             const index = checkbox.dataset.index;
             const message = "Congratulations, you have completed the task " + todoList[index].task;
             todoList.splice(index, 1);
+            localStorage.setItem('todos', JSON.stringify(todoList));
             const currentProject = document.querySelector('.active');
             const currentList = generateList(todoList, currentProject.dataset.project)
             displayTodoSection(currentList);

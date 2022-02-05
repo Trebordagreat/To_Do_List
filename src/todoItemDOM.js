@@ -18,7 +18,6 @@ export default function displayTodoItem (task, description, dueDate, priority, i
     const taskNode = document.createElement('div');
     const descriptionNode = document.createElement('div');
     const dueDateNode = document.createElement('div');
-    const priorityNode = document.createElement('h3');
 
     taskNode.classList.add('taskname');
     descriptionNode.classList.add('taskdescription');
@@ -27,19 +26,12 @@ export default function displayTodoItem (task, description, dueDate, priority, i
     taskNode.textContent = task;
     descriptionNode.textContent = description;
     dueDateNode.textContent = dueDate;
-    priorityNode.textContent = priority;
 
     infoDiv.appendChild(taskNode);
     infoDiv.appendChild(descriptionNode);
     infoDiv.appendChild(dueDateNode);
     
-    todoNode.appendChild(priorityNode);
     todoNode.appendChild(infoDiv);
-
-    //Index for testing
-    const indexNode = document.createElement('p');
-    indexNode.textContent = index;
-    todoNode.appendChild(indexNode);
 
     const buttonsDiv = document.createElement('div');
     buttonsDiv.classList.add('todo-buttons-div');

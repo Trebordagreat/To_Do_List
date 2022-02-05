@@ -22,3 +22,6 @@ For editing the tasks, instead of editing the properties of the todo, I can just
 
 02/02/22
 Close to finishing TodoList project.  I need to configure the dates and local storage functions.  These both will provide me with practice with reading and implementing information from documentation.
+
+02/04/22
+The dates and local storage implements were easy to figure out when my head was clear the past two coding sessions.  I am happy to say it looks like I have a working todoList that mimics the look and behavior of the popular app Todoist.  I understand there are a few bugs I would like to work out (editing and dates), but overall. I could use this project.  Although this is a working piece of code, I can see some flaws in the way that I organized this project.  One day I will move back to this project and reorganize the modules and functions in a cleaner way so that others (and myself) can understand what I have done.  As well, this was my first big project with styling, and I can see the benefits of working with style classes rather than matching classes to different styles.  I am going to take a break from this project, but I am happy to say I now have a working todoList application.  Woohoo!

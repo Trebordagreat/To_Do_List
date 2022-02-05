@@ -6,7 +6,6 @@ export default function editTodoItem (index) {
     const description = document.querySelector('.detailsdescription').value;
     const date = new Date(document.querySelector('.detailsdate').value);
     let dueDate;
-    console.log(date);
     if (isNaN(date)) {
         dueDate = "";
     }

@@ -14,6 +14,7 @@ function displayNavBar () {
     menuNode.setAttribute('id', 'menu');
     menuNode.textContent = "Menu";
     menuNode.classList.add('navoption');
+    menuNode.setAttribute('data-toggle', 'visible')
 
     const homeNode = document.createElement('button');
     homeNode.setAttribute('id', 'home');
@@ -97,10 +98,9 @@ function displayProjects () {
 
     displayProject("Inbox", ".defaultprojects");
     displayProject("All", ".defaultprojects");
-    displayProject("Today", ".defaultprojects");
 
     for (let i = 0; i < projects.length; i++) {
-        if (projects[i] !== "Inbox") {
+        if (projects[i] !== "Inbox" && projects[i] !== 'All') {
             displayProject(projects[i], ".customprojects");
         } 
     }
@@ -111,6 +111,8 @@ function displayProjects () {
 
 import { todoList, todo } from '.';
 import { displayDetailInputs, displayDetailSelections, displayDetailButtons} from './taskDetailsDOM';
+import {menuButtonEvent, homeButtonEvent} from './headerButtons';
+import {settingsButtonEvent} from './settings'
 
 function displayTodoSection (taskList, index) {
 
@@ -173,10 +175,16 @@ function displayTodoSection (taskList, index) {
     editButtonEvent();
     removeButtonEvent();
     completeTask();
+
     if (projshort !== "Inbox" && projshort !== "All" && projshort !== 'Today') {
         editProjectEvent();
         removeProjectEvent();
     }
+
+    //Header Functionality
+    menuButtonEvent();
+    homeButtonEvent();
+    settingsButtonEvent();
 }; 
 
 function clearContents () {

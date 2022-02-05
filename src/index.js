@@ -64,16 +64,28 @@ else {
     projects = JSON.parse(localStorage.getItem('projects') || '[]');
 }
 
-activeList = generateList(todoList, "All");
+//Home project tracker(
+let home;
+if (!localStorage.getItem('home')) {
+    localStorage.setItem('home', JSON.stringify(home));
+}
+else {
+    home = JSON.parse(localStorage.getItem('home') || '[]');
+}
+
+function changeHome(text) {
+    home = text;
+}
 
 displayNavBar();
 displayProjects();
 
 //App starts with "All" project active
-const allNode = document.querySelector('[data-project="All"]');
+const allNode = document.querySelector('[data-project=' + home + ']');
 allNode.classList.add('active');
+activeList = generateList(todoList, home);
 
 displayTodoSection(activeList);
 
 
-export {todoList, todo, activeList, projects, addMethods};
+export {todoList, todo, activeList, projects, addMethods, home, changeHome};
